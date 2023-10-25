@@ -8,3 +8,9 @@ export const getAllDiaries = () => {
     .get<DiaryEntry[]>(baseUrl)
     .then(response => response.data);
 };
+
+export const createNew = (newDiary: DiaryEntry) => {
+  return axios
+    .post<DiaryEntry>(baseUrl, newDiary)
+    .then(response => response.data);
+};
