@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { DiaryEntry } from './types';
+import { DiaryEntry, NewDiaryEntry } from './types';
 import { getAllDiaries, createNew } from './services/diaryService';
 import Diary from './components/Diary';
 import NewDiaryForm from './components/NewDiaryForm';
@@ -14,8 +14,7 @@ const App = () => {
     getAllDiaries().then(data => setDiaries(data));
   }, []);
 
-  const createDiary = async (newEntry: DiaryEntry) => {
-    // createNew(newEntry).then(data => setDiaries(diaries.concat(data)));
+  const createDiary = async (newEntry: NewDiaryEntry) => {
     createNew(newEntry)
       .then(data => setDiaries(diaries.concat(data)))
       .catch( err => {
